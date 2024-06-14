@@ -1,0 +1,13 @@
+[Unit]
+Description=margin
+After=network.target
+
+[Service]
+User=root
+WorkingDirectory = /root/margin
+ExecStart=/root/margin/venv/bin/python /root/margin/main.py
+Restart=always
+RestartSec=15
+
+[Install]
+WantedBy=multi-user.target
