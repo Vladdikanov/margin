@@ -80,5 +80,5 @@ async def main():
         await asyncio.sleep(5)
 asyncio.run(main())
 
-# Привет
+# Привет, как дела?
 
