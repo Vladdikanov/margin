@@ -80,6 +80,6 @@ async def main():
         await asyncio.sleep(5)
 asyncio.run(main())
 
-# Привет, как дела? Ребята
+# Привет, как дела? Хорошая погода сегодня
 
 
