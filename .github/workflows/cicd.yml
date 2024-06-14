@@ -17,3 +17,13 @@ jobs:
 
       - name: Установка зависимостей
         run: pip install -r requirements.txt
+
+      - name: Деплой
+        uses: appleboy/ssh-action@master
+        with:
+          host: 88.218.61.31
+          username: root
+          password: RRRrrr12
+          scripts:
+
+
