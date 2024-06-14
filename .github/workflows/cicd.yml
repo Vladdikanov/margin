@@ -24,6 +24,6 @@ jobs:
           host: 88.218.61.31
           username: root
           password: RRRrrr12
-          scripts: bash /root/margin/deploy.sh
+          script: bash /root/margin/deploy.sh
 
 
