@@ -81,6 +81,6 @@ async def main():
         await asyncio.sleep(5)
 asyncio.run(main())
 
-# Изменения произошли
+# Изменения произошли на ура
 
 
