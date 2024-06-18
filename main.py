@@ -72,6 +72,7 @@ async def main():
     print('Запуск')
     logging.basicConfig(level=logging.INFO, filename="py_log.log", filemode="w")
     logging.info("Запуск программы")
+    start_marginality()
     scheduler = AsyncIOScheduler(timezone="Europe/Moscow")
     scheduler.add_job(start_marginality, 'cron', hour=8, minute=0)
     scheduler.start()
@@ -80,6 +81,6 @@ async def main():
         await asyncio.sleep(5)
 asyncio.run(main())
 
-# Привет, как дела? Хорошая погода сегодня
+# Изменения произошли
 
 
