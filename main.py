@@ -70,7 +70,6 @@ def start_marginality():
     # pprint(main_data)
 
 
-
 async def main():
     print('Запуск')
     logging.basicConfig(level=logging.INFO, filename="py_log.log", filemode="w")
