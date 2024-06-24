@@ -11,7 +11,9 @@ INFO:oauth2client.client:Refreshing access_token
 INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
 INFO:oauth2client.transport:Attempting refresh to obtain initial access_token
 INFO:oauth2client.client:Refreshing access_token
-INFO:apscheduler.scheduler:Adding job tentatively -- it will be properly scheduled when the scheduler starts
-INFO:apscheduler.scheduler:Added job "start_marginality" to job store "default"
-INFO:apscheduler.scheduler:Scheduler started
-INFO:root:Задачи добавлены и запущены
+INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
+INFO:oauth2client.transport:Attempting refresh to obtain initial access_token
+INFO:oauth2client.client:Refreshing access_token
+INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
+INFO:oauth2client.transport:Attempting refresh to obtain initial access_token
+INFO:oauth2client.client:Refreshing access_token
