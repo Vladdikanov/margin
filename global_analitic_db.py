@@ -97,6 +97,7 @@ def load_data_to_db(data, seller, date):
         abc = i[22]
         plan = i[23]
         demand = i[24]
+        stocks = i[25]
 
 
         date = date
@@ -108,11 +109,11 @@ def load_data_to_db(data, seller, date):
                     cur.execute("""INSERT INTO analytics(shop_id, name_art, id_art, orders, sales, avg_price, comission,
                     value, storage_one, storage_all, buyoutsPercent, logistics, cost_price, tax, profit_one, margin, 
                     percent_invest, orders_conversion, sales_volume, marketing_all, marketing_one, profit_all, ctr,
-                    abc, plan_day, demand, date
+                    abc, plan_day, demand, date, stocks
                     ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s,
-                    %s, %s, %s, %s, %s)""", (seller, name_art, id_art, orders, sales, avgPrice, comission, value, storage_one,
+                    %s, %s, %s, %s, %s, %s)""", (seller, name_art, id_art, orders, sales, avgPrice, comission, value, storage_one,
                                          storage_all, buyoutsPercent, logistics, cost_price, tax, profit_one, margin, percent_invest,
-                                         orders_conversion, sales_volume, marketing_all, marketing_one, profit_all, ctr, abc, plan, demand, date))
+                                         orders_conversion, sales_volume, marketing_all, marketing_one, profit_all, ctr, abc, plan, demand, date, stocks))
                     conn.commit()
                     conn.close()
                     print(f"Записали {id_art}")
@@ -247,7 +248,7 @@ def get_data_analytics(seller):
         cur.execute("""select name_art, id_art, orders, sales, avg_price, comission, value,
 storage_one, storage_all, buyoutspercent, logistics, cost_price, tax, profit_one, dif1_profit_one,
 margin, dif1_margin, avg7_margin, percent_invest, orders_conversion, sales_volume, abc, marketing_all, marketing_one,
-drr, ctr, profit_all, avg7_profit_all, orders, dif1_orders, avg7_orders, plan_day, demand from analytics
+drr, ctr, profit_all, avg7_profit_all, orders, dif1_orders, avg7_orders, plan_day, demand, stocks from analytics
 where date = current_date and shop_id = %s
 order by profit_all desc;""", (seller,))
         data_analytics = cur.fetchall()
@@ -256,9 +257,7 @@ order by profit_all desc;""", (seller,))
     for i in data_analytics:
         lst = list(i)
         data_analytics_list.append(lst)
-
     return data_analytics_list
-
 
 def create_data_list_from_db(sum_metriss, data_analitics):
     data_list = []
@@ -277,7 +276,7 @@ def create_data_list_from_db(sum_metriss, data_analitics):
             'Себес', 'Процент выкупа', 'Ср-цена', 'Продажи', 'Средний спрос по нише','Реклама', 'Реклама (шт)',
             'ДРР', 'CTR', 'Маржа', 'Разница в марже к вчерашнему дню', 'Прибыль шт', 'Прибыль',
             'Разница в прибыли к вчерашнему дню', 'От вложений', 'Разница в заказах к вчерашнему дню', 'Заказы шт',
-            "План на день" ]
+            "План на день", "Остаток"]
     post_head = ["Наименование", "", "",
                  "База", "", "",
                  "ЮнитЭкономические данные", "", "", "", "", "",
@@ -330,6 +329,7 @@ def create_data_list_from_db(sum_metriss, data_analitics):
         plan_day = i[31]
         print(i[32])
         demand = round(i[32], 0)
+        stocks = i[33]
 
 
         row = [name_art, id_art, abc,
@@ -338,7 +338,7 @@ def create_data_list_from_db(sum_metriss, data_analitics):
                avg7_profit_all, f"{avg7_margin}%", avg7_orders,
                cost_price, f"{buyoutspercent}%", avg_price, sales_volume, demand, marketing_all, marketing_one, drr, ctr,
                f"{margin}%", f"{dif1_margin}%", profit_one, profit_all, dif1_profit_one, f"{percent_invest}%",
-               dif1_orders, orders, plan_day]
+               dif1_orders, orders, plan_day, stocks]
 
         rows_data_without_head.append(row)
 

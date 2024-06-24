@@ -48,7 +48,6 @@ def get_marketing(headers, date_param):
                 continue
             elif result.status_code == 502:
                 print(result.status_code)
-                print(result)
                 time.sleep(5)
 
             elif result.status_code == 400:
@@ -58,7 +57,6 @@ def get_marketing(headers, date_param):
             elif result.status_code == 200:
                 print(result.status_code)
                 res = result.json()
-                pprint(res)
                 break
             else:
                 print(result.status_code)
@@ -134,7 +132,6 @@ def get_card_analytics(headers, date_1ago, date_30ago):
     }
     card_analytics_dict = {}
     res = requests.post("https://seller-analytics-api.wildberries.ru/api/v2/nm-report/detail", headers=headers, json=params).json()
-    pprint(res)
     stistic = res['data']['cards']
     next_page = res["data"]['isNextPage'] # Если есть следующая страница, стоит пополнить словарь данными
     for card in stistic:

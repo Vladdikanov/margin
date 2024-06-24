@@ -68,7 +68,6 @@ def get_volume_name_cost_price(sheet, sheet_id):
             "costPrice": int(i[2]),
             "volume": float((i[3].replace(",",".")))
         }
-    pprint(dict_name_costPrice_volume)
     return dict_name_costPrice_volume
 
 def get_commission(sheet, sheet_id):
@@ -86,7 +85,6 @@ def get_commission(sheet, sheet_id):
     dict_comission = {}
     for i in comission:
         dict_comission[i[0]] = float(i[1].replace(",", "."))
-    pprint(dict_comission)
     return dict_comission
 
 
@@ -155,6 +153,20 @@ def get_abc(sheet, sheet_id):
     pprint(dict_abc)
     return dict_abc
 
+def get_tax_percent(sheet, sheet_id):
+    CREDENTIALS_FILE = creds
+    spreadsheet_id = sheet_id
+    credentials = ServiceAccountCredentials.from_json_keyfile_name(
+        CREDENTIALS_FILE,
+        ['https://www.googleapis.com/auth/spreadsheets',
+         'https://www.googleapis.com/auth/spreadsheets'])
+    httpAuth = credentials.authorize(httplib2.Http())
+    service = discovery.build("sheets", 'v4', http=httpAuth)
+
+    sheet = service.spreadsheets().values().get(spreadsheetId=spreadsheet_id, range=f"{sheet}!J2").execute()
+    tax = float(sheet['values'][0][0]) / 100
+    return tax
+get_tax_percent("Артикулы", "1OPFX2b9A9pWKVehlkOupGjt7DC0ePjS5CNyM-FlQYcM")
 def get_key_req(sheet, sheet_id):
     CREDENTIALS_FILE = creds
     spreadsheet_id = sheet_id
@@ -383,7 +395,7 @@ def format_sheets(id_list, sheet_id):
                             "startRowIndex": 0,
                             "endRowIndex": 2,
                             "startColumnIndex": 15,
-                            "endColumnIndex": 33
+                            "endColumnIndex": 34
                         },
                     "cell":
                         {
@@ -461,7 +473,7 @@ def format_sheets(id_list, sheet_id):
                         "startRowIndex": 1,
                         "endRowIndex": 2,
                         "startColumnIndex": 15,
-                        "endColumnIndex": 33
+                        "endColumnIndex": 34
                     },
                     "mergeType": "MERGE_ALL"
                 }
@@ -474,7 +486,7 @@ def format_sheets(id_list, sheet_id):
                             "startRowIndex": 1,
                             "endRowIndex": 2,
                             "startColumnIndex": 0,
-                            "endColumnIndex": 33
+                            "endColumnIndex": 34
                         },
                     "cell":
                         {

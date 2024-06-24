@@ -15,9 +15,9 @@ def add_volume_name_cost_price(main_data, volume_name_cost_price):
     pprint(main_data)
     return main_data
 
-def add_tax(main_data):
+def add_tax(main_data, tax_percent):
     for id in main_data:
-        main_data[id]["info"]["tax"] = main_data[id]["info"]['avgPrice'] * 0.01
+        main_data[id]["info"]["tax"] = main_data[id]["info"]['avgPrice'] * tax_percent
 
 def add_abc(main_data, abc):
     pprint(abc)
@@ -270,11 +270,12 @@ def create_data_list_to_db(main_data):
         abc = main_data[id]["info"]["abc"]
         plan = main_data[id]['info'].get("plan", 0)
         demand = main_data[id]["info"].get("demand", 0)
+        stocks = main_data[id]["info"].get("all_stocks", 0)
 
 
         row = [name, id, orders, sales, avgPrice, comission, volume, storageForOneOrder, storageForAllWH, buyoutsPercent,
                deliveryForOneOrder, costPrice, tax, profitForOneOrder, margin, percent_of_investments, orders_conversion,
-               sales_volume, marketing, marketingForOneOrder, profit, ctr, abc, plan, demand]
+               sales_volume, marketing, marketingForOneOrder, profit, ctr, abc, plan, demand, stocks]
 
         data_list.append(row)
 

@@ -11,77 +11,7 @@ INFO:oauth2client.client:Refreshing access_token
 INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
 INFO:oauth2client.transport:Attempting refresh to obtain initial access_token
 INFO:oauth2client.client:Refreshing access_token
-INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
-INFO:oauth2client.transport:Attempting refresh to obtain initial access_token
-INFO:oauth2client.client:Refreshing access_token
-INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
-INFO:oauth2client.transport:Attempting refresh to obtain initial access_token
-INFO:oauth2client.client:Refreshing access_token
-INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
-INFO:oauth2client.transport:Attempting refresh to obtain initial access_token
-INFO:oauth2client.client:Refreshing access_token
-INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
-INFO:oauth2client.transport:Attempting refresh to obtain initial access_token
-INFO:oauth2client.client:Refreshing access_token
-INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
-INFO:oauth2client.transport:Attempting refresh to obtain initial access_token
-INFO:oauth2client.client:Refreshing access_token
-INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
-INFO:oauth2client.transport:Attempting refresh to obtain initial access_token
-INFO:oauth2client.client:Refreshing access_token
-INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
-INFO:oauth2client.transport:Attempting refresh to obtain initial access_token
-INFO:oauth2client.client:Refreshing access_token
-INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
-INFO:oauth2client.transport:Attempting refresh to obtain initial access_token
-INFO:oauth2client.client:Refreshing access_token
-INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
-INFO:oauth2client.transport:Attempting refresh to obtain initial access_token
-INFO:oauth2client.client:Refreshing access_token
-INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
-INFO:oauth2client.transport:Attempting refresh to obtain initial access_token
-INFO:oauth2client.client:Refreshing access_token
-INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
-INFO:oauth2client.transport:Attempting refresh to obtain initial access_token
-INFO:oauth2client.client:Refreshing access_token
-INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
-INFO:oauth2client.transport:Attempting refresh to obtain initial access_token
-INFO:oauth2client.client:Refreshing access_token
-INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
-INFO:oauth2client.transport:Attempting refresh to obtain initial access_token
-INFO:oauth2client.client:Refreshing access_token
-INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
-INFO:oauth2client.transport:Attempting refresh to obtain initial access_token
-INFO:oauth2client.client:Refreshing access_token
-INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
-INFO:oauth2client.transport:Attempting refresh to obtain initial access_token
-INFO:oauth2client.client:Refreshing access_token
-INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
-INFO:oauth2client.transport:Attempting refresh to obtain initial access_token
-INFO:oauth2client.client:Refreshing access_token
-INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
-INFO:oauth2client.transport:Attempting refresh to obtain initial access_token
-INFO:oauth2client.client:Refreshing access_token
-INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
-INFO:oauth2client.transport:Attempting refresh to obtain initial access_token
-INFO:oauth2client.client:Refreshing access_token
-INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
-INFO:oauth2client.transport:Attempting refresh to obtain initial access_token
-INFO:oauth2client.client:Refreshing access_token
-INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
-INFO:oauth2client.transport:Attempting refresh to obtain initial access_token
-INFO:oauth2client.client:Refreshing access_token
-INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
-INFO:oauth2client.transport:Attempting refresh to obtain initial access_token
-INFO:oauth2client.client:Refreshing access_token
-INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
-INFO:oauth2client.transport:Attempting refresh to obtain initial access_token
-INFO:oauth2client.client:Refreshing access_token
-INFO:googleapiclient.discovery_cache:file_cache is only supported with oauth2client<4.0.0
-INFO:oauth2client.transport:Attempting refresh to obtain initial access_token
-INFO:oauth2client.client:Refreshing access_token
 INFO:apscheduler.scheduler:Adding job tentatively -- it will be properly scheduled when the scheduler starts
 INFO:apscheduler.scheduler:Added job "start_marginality" to job store "default"
 INFO:apscheduler.scheduler:Scheduler started
 INFO:root:Задачи добавлены и запущены
-WARNING:apscheduler.executors.default:Run time of job "start_marginality (trigger: cron[hour='8', minute='0'], next run at: 2024-06-17 08:00:00 MSK)" was missed by 2:36:13.208488

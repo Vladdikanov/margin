@@ -11,7 +11,7 @@ from data_preparation import add_sales_volume, create_data_list_to_db, add_order
     add_buyoutsPercent, add_avgPrice, add_volume_name_cost_price, add_percentage_of_investments
 
 from sheets_wbseller_margin import get_volume_name_cost_price, get_commission, add_margin_table, create_new_margin_table,\
-    get_abc, get_key_req, get_plan_art, get_demand_art, format_sheets, get_id_sheet
+    get_abc, get_key_req, get_plan_art, get_demand_art, format_sheets, get_id_sheet, get_tax_percent
 from API_WB import get_header, get_tariffs_box, get_sales_orders_stock, get_card_analytics, get_avg_price, get_marketing
 from global_analitic_db import load_data_to_db, count_and_load, get_seller_and_keys
 
@@ -27,6 +27,7 @@ def start_marginality():
     date_param_30ago = date_30days_ago.strftime("%Y-%m-%d")
     shop_keys = get_seller_and_keys(client_info.id_client)
     for seller, api_wb, sheet_id in shop_keys:
+
         dict_name_costPrice_volume = get_volume_name_cost_price("Артикулы", sheet_id)
         tarifs = get_tariffs_box(get_header(api_wb), date_param_1ago)
         comission = get_commission("Комиссия", sheet_id)
@@ -35,6 +36,7 @@ def start_marginality():
         abc_dict = get_abc("Артикулы", sheet_id)
         plan_dict = get_plan_art("План продаж", sheet_id)
         demand_dict = get_demand_art("План продаж", sheet_id)
+        tax_percent = get_tax_percent("Артикулы", sheet_id)
         main_data = get_sales_orders_stock(get_header(api_wb),date_param_1ago)
         add_volume_name_cost_price(main_data, dict_name_costPrice_volume)
         add_storage(tarifs, main_data)
@@ -42,8 +44,9 @@ def start_marginality():
         add_logistics(tarifs, main_data)
         add_comission(main_data, comission)
         add_avgPrice(main_data, avgPrice_dict)
-        add_tax(main_data)
+        add_tax(main_data, tax_percent)
         add_abc(main_data, abc_dict)
+        pprint(main_data)
         marketing, ctr_dict = get_marketing(get_header(api_wb),date_param_1ago)
         pprint(main_data)
         add_marceting(main_data, marketing)
