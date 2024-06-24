@@ -268,20 +268,35 @@ def get_sales_orders_stock(headers, date_1ago):
             sales_orders_stocks[card['nmId']]["sales_orders_stocks"][card['warehouseName']]['orders'] = 1
         else:
             sales_orders_stocks[card['nmId']]["sales_orders_stocks"][card['warehouseName']]['orders'] += 1
-
+    wh_dict = {
+        "Коледино": "Москва",
+        "Подольск": "Москва",
+        "Электросталь": "Москва",
+        "Тула": "Москва",
+        "Белая дача": "Москва",
+        "Белые Столбы": "Москва",
+        "Санкт-Петербург Уткина Заводь": "СПБ",
+        "Санкт - Петербург Шушары": "СПБ",
+        "Екатеринбург - Испытателей 14г": "Екатеринбург",
+        "Подольск 3": "Москва",
+        "Подольск": "Москва"
+    }
     for card in stocks:
         if card["quantity"] == 0:
             continue
+        wh_name = card['warehouseName']
+        if wh_name in wh_dict:
+            wh_name = wh_dict[wh_name]
         if sales_orders_stocks.get(card['nmId']) == None:
-            sales_orders_stocks[card['nmId']] = {"sales_orders_stocks":{card['warehouseName']:{'stocks': card['quantity']}},
+            sales_orders_stocks[card['nmId']] = {"sales_orders_stocks":{wh_name:{'stocks': card['quantity']}},
                                                  "info":{'subject': card['subject']}}
 
-        elif sales_orders_stocks[card['nmId']]["sales_orders_stocks"].get(card['warehouseName']) == None:
-            sales_orders_stocks[card['nmId']]["sales_orders_stocks"][card['warehouseName']] = {'stocks': card['quantity']}
-        elif sales_orders_stocks[card['nmId']]["sales_orders_stocks"][card['warehouseName']].get('stocks') == None:
-            sales_orders_stocks[card['nmId']]["sales_orders_stocks"][card['warehouseName']]['stocks'] = card['quantity']
+        elif sales_orders_stocks[card['nmId']]["sales_orders_stocks"].get(wh_name) == None:
+            sales_orders_stocks[card['nmId']]["sales_orders_stocks"][wh_name] = {'stocks': card['quantity']}
+        elif sales_orders_stocks[card['nmId']]["sales_orders_stocks"][wh_name].get('stocks') == None:
+            sales_orders_stocks[card['nmId']]["sales_orders_stocks"][wh_name]['stocks'] = card['quantity']
         else:
-            sales_orders_stocks[card['nmId']]["sales_orders_stocks"][card['warehouseName']]['stocks'] += card['quantity']
+            sales_orders_stocks[card['nmId']]["sales_orders_stocks"][wh_name]['stocks'] += card['quantity']
     # Итог по общим остаткам, продажам и заказам
 
     for id in sales_orders_stocks:
@@ -291,7 +306,8 @@ def get_sales_orders_stock(headers, date_1ago):
         for wh in sales_orders_stocks[id]["sales_orders_stocks"].values():
             all_sales += wh.get("sales", 0)
             all_orders += wh.get("orders", 0)
-            all_stocks += wh.get("stocks", 0)
+            if wh == "Москва":
+                all_stocks += wh.get("stocks", 0)
         sales_orders_stocks[id]["info"]['all_orders'] = all_orders
         sales_orders_stocks[id]["info"]['all_sales'] = all_sales
         sales_orders_stocks[id]["info"]['all_stocks'] = all_stocks

@@ -19,8 +19,8 @@ from global_analitic_db import load_data_to_db, count_and_load, get_seller_and_k
 
 def start_marginality():
 
-    date_1days_ago = datetime.date.today() - datetime.timedelta(days=1)
-    date_30days_ago = datetime.date.today() - datetime.timedelta(days=30 )
+    date_1days_ago = datetime.date.today() - datetime.timedelta(days=2)
+    date_30days_ago = datetime.date.today() - datetime.timedelta(days=31 )
     #
     date_now = datetime.date.today().strftime("%Y-%m-%d")
     date_param_1ago = date_1days_ago.strftime("%Y-%m-%d")
